@@ -1,9 +1,17 @@
 fileFormatVersion: 2
 guid: a0b90ed4535e24ab392f4db8f69dada3
-timeCreated: 1445071654
+timeCreated: 1445072335
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: player_walk_1
+    21300002: player_walk_2
+    21300004: player_walk_3
+    21300006: player_jump_1
+    21300008: player_jump_2
+    21300010: player_jump_3
+    21300012: player_jump_4
+    21300014: player_jump_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -30,14 +38,14 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     filterMode: -1
-    aniso: -1
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -48,7 +56,87 @@ TextureImporter:
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: player_walk_1
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 1010
+        width: 245
+        height: 485
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player_walk_2
+      rect:
+        serializedVersion: 2
+        x: 826
+        y: 1009
+        width: 200
+        height: 486
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player_walk_3
+      rect:
+        serializedVersion: 2
+        x: 1143
+        y: 1010
+        width: 278
+        height: 485
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player_jump_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 29
+        width: 283
+        height: 471
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player_jump_2
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 57
+        width: 252
+        height: 484
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player_jump_3
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 268
+        width: 270
+        height: 481
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player_jump_4
+      rect:
+        serializedVersion: 2
+        x: 1228
+        y: 170
+        width: 336
+        height: 454
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: player_jump_5
+      rect:
+        serializedVersion: 2
+        x: 1687
+        y: 2
+        width: 283
+        height: 470
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 
