@@ -22,6 +22,7 @@ namespace UnityStandardAssets._2D
             if (m_Moov == 0) {
                if (Input.anyKey || (Input.touchCount == 1)) {
                 m_Moov = 1;
+                PlayerPrefs.SetInt("Score", 0);
                }
             }
 

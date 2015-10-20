@@ -10,24 +10,25 @@ public class GameOverScript : MonoBehaviour {
   void OnGUI() {
 
     int prevLevel = PlayerPrefs.GetInt("prevLevel");
+    int score = PlayerPrefs.GetInt("Score");
     int nextLevel = 0;
-      if (prevLevel == 1){
-        nextLevel = 2;
+      if (prevLevel == 6){
+        nextLevel = 7;
       }
-      else if (prevLevel == 2) {
-        nextLevel = 3;
+      else if (prevLevel == 7) {
+        nextLevel = 8;
       }
       else {
-        nextLevel = 1;
+        nextLevel = 6;
       }
-      print("next level is "+ nextLevel);
+      PlayerPrefs.SetInt("nextLevel", nextLevel);
     if (GUI.Button(new Rect(Screen.width/2 - 85 , 270, 170, 40), button_image, testStyle)) {
-      PlayerPrefs.SetInt("Score", 0);
-      Application.LoadLevel(prevLevel);
+      Application.LoadLevel(9);
     }
     if (GUI.Button(new Rect(Screen.width/2 - 85 , 350  , 170 , 40), button_image, testStyle)) {
-      PlayerPrefs.SetInt("Score", 0);
       Application.LoadLevel(nextLevel);
+      Application.LoadLevel(11);
+
     }
   }
 }
