@@ -10,11 +10,14 @@ public class SpawnObjects : MonoBehaviour {
 	void Start () {
 	 Spawn();
 	}
-	
+
 	void Spawn () {
     var collectible = obj[Random.Range (0, obj.GetLength(0))];
     if(fall) {
       collectible.GetComponent<Rigidbody2D>().isKinematic = false;
+    }
+    else {
+      collectible.GetComponent<Rigidbody2D>().isKinematic = true;
     }
     Instantiate(collectible, transform.position, Quaternion.identity);
     Invoke ("Spawn", Random.Range (spawnMin, spawnMax));
