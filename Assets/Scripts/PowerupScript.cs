@@ -27,7 +27,7 @@ public class PowerupScript : MonoBehaviour {
       else if (powerup_name == "burger"){
         points = -50;
       }
-      else if (powerup_name == "horlicks_bottle"){
+      else if ((powerup_name == "horlicks_bottle") || (powerup_name == "horlicks_mug")){
         points = 100;
         Vector3 scorePos;
         scorePos = other.transform.position;
@@ -36,16 +36,12 @@ public class PowerupScript : MonoBehaviour {
           Instantiate(hundredPointsUI, scorePos, Quaternion.identity);
         }
       }
-      else if (powerup_name == "horlicks_mug"){
-        points = 70;
-      }
 
       PlayerPrefs.SetInt("Score", playerScore + points);
-   
+
       Destroy (this.gameObject);
       score = GameObject.Find("score");
       score.GetComponent<Score>().Update();
     }
-   
   }
 }
