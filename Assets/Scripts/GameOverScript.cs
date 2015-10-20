@@ -20,11 +20,12 @@ public class GameOverScript : MonoBehaviour {
       else {
         nextLevel = 1;
       }
+      print("next level is "+ nextLevel);
     if (GUI.Button(new Rect(Screen.width/2 - 85 , 270, 170, 40), button_image, testStyle)) {
       PlayerPrefs.SetInt("Score", 0);
       Application.LoadLevel(prevLevel);
     }
-    if (GUI.Button(new Rect(Screen.width/2 - 85 , 320, 170, 40), button_image, testStyle)) {
+    if (GUI.Button(new Rect(Screen.width/2 - 85 , 350  , 170 , 40), button_image, testStyle)) {
       PlayerPrefs.SetInt("Score", 0);
       Application.LoadLevel(nextLevel);
     }
