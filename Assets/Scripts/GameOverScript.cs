@@ -4,22 +4,28 @@ using System.Collections;
 public class GameOverScript : MonoBehaviour {
   int score = 0;
   public Texture button_image;
- private GUIStyle testStyle = new GUIStyle();
-  void Start() {
-    PlayerPrefs.SetInt("prevLevel", Application.loadedLevel);
-  }
 
-  public void Run() {
-  Application.LoadLevel(0);
+  private GUIStyle testStyle = new GUIStyle();
 
-  }
   void OnGUI() {
-   
-    if (GUI.Button(new Rect(Screen.width/2 - 150 , 350, 300, 80), button_image, testStyle)) {
 
-      Application.LoadLevel(1);
+    int prevLevel = PlayerPrefs.GetInt("prevLevel");
+    int nextLevel = 0;
+      if (prevLevel == 1){
+        nextLevel = 2;
+      }
+      else if (prevLevel == 2) {
+        nextLevel = 3;
+      }
+      else {
+        nextLevel = 1;
+      }
+    if (GUI.Button(new Rect(Screen.width/2 - 85 , 270, 170, 40), button_image, testStyle)) {
+
+      Application.LoadLevel(prevLevel);
+    }
+    if (GUI.Button(new Rect(Screen.width/2 - 85 , 320, 170, 40), button_image, testStyle)) {
+      Application.LoadLevel(nextLevel);
     }
   }
-
-  
 }
