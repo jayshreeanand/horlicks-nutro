@@ -3,17 +3,23 @@ using System.Collections;
 
 public class GameOverScript : MonoBehaviour {
   int score = 0;
-
+  public Texture button_image;
+ private GUIStyle testStyle = new GUIStyle();
   void Start() {
-    score = PlayerPrefs.GetInt("Score");
+    PlayerPrefs.SetInt("prevLevel", Application.loadedLevel);
   }
 
+  public void Run() {
+  Application.LoadLevel(0);
+
+  }
   void OnGUI() {
-    GUI.Label(new Rect(Screen.width/2 - 40, 50, 150, 30), "GAME OVER!");
-    GUI.Label(new Rect(Screen.width/2 - 40, 300, 80, 30), "SCORE:" + score);
-    if (GUI.Button(new Rect(Screen.width/2 - 30, 350, 60, 30), "Retry?")) {
-      PlayerPrefs.SetInt("Score", 0);
+   
+    if (GUI.Button(new Rect(Screen.width/2 - 150 , 350, 300, 80), button_image, testStyle)) {
+
       Application.LoadLevel(1);
     }
   }
+
+  
 }

@@ -5,7 +5,8 @@ public class Obstacle : MonoBehaviour {
 
 	  void OnTriggerEnter2D(Collider2D other) {
     if(other.tag == "Player") {
-      Application.LoadLevel(Application.loadedLevel);
+      GameObject game = GameObject.Find("game");
+      game.GetComponent<GameOverScript>().Run();
     }
   }
 }

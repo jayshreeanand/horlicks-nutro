@@ -35,11 +35,8 @@ public class Bullet : MonoBehaviour {
 
       // Destroy the rocket.
       Destroy (gameObject);
+      Destroy (gameObject);
     }
-    else if(col.tag == "Player") 
-    {
-     Application.LoadLevel(Application.loadedLevel);
-
-    }
+  
   }
 }
