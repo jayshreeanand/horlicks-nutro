@@ -21,10 +21,11 @@ public class GameOverScript : MonoBehaviour {
         nextLevel = 1;
       }
     if (GUI.Button(new Rect(Screen.width/2 - 85 , 270, 170, 40), button_image, testStyle)) {
-
+      PlayerPrefs.SetInt("Score", 0);
       Application.LoadLevel(prevLevel);
     }
     if (GUI.Button(new Rect(Screen.width/2 - 85 , 320, 170, 40), button_image, testStyle)) {
+      PlayerPrefs.SetInt("Score", 0);
       Application.LoadLevel(nextLevel);
     }
   }
