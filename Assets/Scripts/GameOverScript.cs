@@ -22,10 +22,10 @@ public class GameOverScript : MonoBehaviour {
         nextLevel = 6;
       }
       PlayerPrefs.SetInt("nextLevel", nextLevel);
-    if (GUI.Button(new Rect(Screen.width/2 - 85 , 270, 170, 40), button_image, testStyle)) {
+    if (GUI.Button(new Rect(Screen.width/2 - 125 , 385, 250, 50), button_image)) {
       Application.LoadLevel(9);
     }
-    if (GUI.Button(new Rect(Screen.width/2 - 85 , 350  , 170 , 40), button_image, testStyle)) {
+    if (GUI.Button(new Rect(Screen.width/2 - 125 , 455  , 250 , 50), button_image)) {
       Application.LoadLevel(nextLevel);
       Application.LoadLevel(11);
 
