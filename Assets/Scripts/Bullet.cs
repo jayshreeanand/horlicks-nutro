@@ -11,7 +11,6 @@ public class Bullet : MonoBehaviour {
 	   // Destroy the rocket after 2 seconds if it doesn't get destroyed before then.
     Destroy(this.gameObject, 2);
 	}
-	
 
   void OnExplode()
   {
@@ -21,8 +20,8 @@ public class Bullet : MonoBehaviour {
     // Instantiate the explosion where the rocket is with the random rotation.
     Instantiate(explosion, transform.position, randomRotation);
   }
-  
-  void OnTriggerEnter2D (Collider2D col) 
+
+  void OnTriggerEnter2D (Collider2D col)
   {
     // If it hits an enemy...
     if(col.tag == "Enemy")
@@ -35,8 +34,6 @@ public class Bullet : MonoBehaviour {
 
       // Destroy the rocket.
       Destroy (gameObject);
-      Destroy (gameObject);
     }
-  
   }
 }

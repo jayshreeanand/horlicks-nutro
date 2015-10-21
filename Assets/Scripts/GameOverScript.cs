@@ -2,10 +2,10 @@
 using System.Collections;
 
 public class GameOverScript : MonoBehaviour {
-  int score = 0;
-  public Texture button_image;
+  public Texture play_again_button_image;
+  public Texture next_level_button_image;
 
-  private GUIStyle testStyle = new GUIStyle();
+  public GUISkin customSkin;
 
   void OnGUI() {
 
@@ -18,17 +18,19 @@ public class GameOverScript : MonoBehaviour {
       else if (prevLevel == 7) {
         nextLevel = 8;
       }
-      else {
+      else if (prevLevel == 8) {
         nextLevel = 6;
       }
-      PlayerPrefs.SetInt("nextLevel", nextLevel);
-    if (GUI.Button(new Rect(Screen.width/2 - 125 , 385, 250, 50), button_image)) {
-      Application.LoadLevel(9);
-    }
-    if (GUI.Button(new Rect(Screen.width/2 - 125 , 455  , 250 , 50), button_image)) {
-      Application.LoadLevel(nextLevel);
-      Application.LoadLevel(11);
 
+      GUI.skin = customSkin;
+    if (GUI.Button(new Rect(Screen.width/2 - 80  , Screen.height/2 + 50, 160, 50), play_again_button_image)) {
+      PlayerPrefs.SetInt("nextLevel", prevLevel);
+      Application.LoadLevel(Random.Range(9,12));
     }
+    if (GUI.Button(new Rect(Screen.width/2 - 80  , Screen.height/2 + 100, 160, 50), next_level_button_image)) {
+      PlayerPrefs.SetInt("nextLevel", nextLevel);
+      Application.LoadLevel(Random.Range(9,12));
+    }
+    GUI.skin = null;
   }
 }
