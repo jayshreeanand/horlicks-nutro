@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityStandardAssets.CrossPlatformInput;
 
 namespace UnityStandardAssets._2D
 {
@@ -36,15 +35,15 @@ namespace UnityStandardAssets._2D
             {
                 m_Shoot = Input.GetButtonDown("Fire1") || (Input.touchCount == 1 && (Input.GetTouch(0).position.x < Screen.width/2));
 
-            }   
+            }
         }
 
 
         private void FixedUpdate()
         {
             // Read the inputs.
-//            bool crouch = Input.GetKey(KeyCode.LeftControl);
-//            float h = CrossPlatformInputManager.GetAxis("Horizontal");
+            //bool crouch = Input.GetKey(KeyCode.LeftControl);
+            //float h = CrossPlatformInputManager.GetAxis("Horizontal");
             // Pass all parameters to the character control script.
             m_Character.Move(m_Moov, false, m_Jump, m_Shoot);
             m_Jump = false;
