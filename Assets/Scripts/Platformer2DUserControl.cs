@@ -25,16 +25,13 @@ namespace UnityStandardAssets._2D
                }
             }
 
-            if (!m_Jump)
-            {
+            if (!m_Jump) {
                 // Read the jump input in Update so button presses aren't missed.
-				m_Jump = Input.GetButtonDown("Jump") || (Input.touchCount == 1 && (Input.GetTouch(0).position.x > Screen.width/2));
+                m_Jump = Input.GetButtonDown("Jump") || (Input.touchCount == 1 && (Input.GetTouch(0).position.x > Screen.width/3) && (Input.GetTouch(0).phase == TouchPhase.Began));
             }
 
-            if (!m_Shoot)
-            {
-                m_Shoot = Input.GetButtonDown("Fire1") || (Input.touchCount == 1 && (Input.GetTouch(0).position.x < Screen.width/2));
-
+            if (!m_Shoot) {
+                m_Shoot = Input.GetButtonDown("Fire1") || (Input.touchCount == 1 && (Input.GetTouch(0).position.x < Screen.width/3) && (Input.GetTouch(0).phase == TouchPhase.Began));
             }
         }
 
