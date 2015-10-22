@@ -23,11 +23,11 @@ public class GameOverScript : MonoBehaviour {
       }
 
       GUI.skin = customSkin;
-    if (GUI.Button(new Rect(Screen.width/2 - 80  , Screen.height/2 + 50, 160, 50), play_again_button_image)) {
+    if (GUI.Button(new Rect(Screen.width/2 - 134  , Screen.height/2 + 60, 268, 56), play_again_button_image)) {
       PlayerPrefs.SetInt("nextLevel", prevLevel);
       Application.LoadLevel(Random.Range(9,12));
     }
-    if (GUI.Button(new Rect(Screen.width/2 - 80  , Screen.height/2 + 100, 160, 50), next_level_button_image)) {
+    if (GUI.Button(new Rect(Screen.width/2 - 134  , Screen.height/2 + 120, 268, 56), next_level_button_image)) {
       PlayerPrefs.SetInt("nextLevel", nextLevel);
       Application.LoadLevel(Random.Range(9,12));
     }
