@@ -10,25 +10,63 @@ public class GameController : MonoBehaviour {
     timeStart = Time.time;
   }
  
-  void Update1 (){
+  void Update (){
+      string currentLevel = Application.loadedLevelName;
+
     if (Input.anyKeyDown || (Input.touchCount == 1) || (timeStart+timeWait)<Time.time){
-      int currentLevel = Application.loadedLevel;
-      if((currentLevel >= 0) && (currentLevel < 4)) {
-        Application.LoadLevel(currentLevel + 1);
+
+      if (currentLevel == "nutro") {
+        Application.LoadLevel("intro");
       }
-      else if (currentLevel >= 9) {
-        int nextLevel = PlayerPrefs.GetInt("nextLevel");
-        Application.LoadLevel(nextLevel);
+      
+      else if (currentLevel == "intro") {
+        Application.LoadLevel("controls");
       }
-      else {
-      Application.LoadLevel(6);
+      else if (currentLevel == "controls") {
+        Application.LoadLevel("levels");
+      }
+      else if (currentLevel == "puzzle") {
+        Application.LoadLevel(RandomFact());
+      }
+      else if ((currentLevel == "fact1") || (currentLevel == "fact2") || (currentLevel == "fact3") || (currentLevel == "fact4")) {
+        Application.LoadLevel("mission");
+      }
+      else if (currentLevel == "smart_kid") {
+        Application.LoadLevel("mission");
       }
     }
   }
 
+  string RandomFact() {
+    int fact_no = Random.Range(1,4);
+    string fact_level_name;
+    switch(fact_no) {
+      case 1:
+        fact_level_name = "fact1";
+        break;
+
+      case 2:
+        fact_level_name = "fact2";
+        break;
+
+      case 3:
+        fact_level_name = "fact3";
+        break;
+
+      case 4:
+        fact_level_name = "fact4";
+        break;
+
+      default:
+        fact_level_name = "fact1";
+        break;
+
+    }
+    return fact_level_name;
+  }
   public void SetLevel(int level_id) {
     PlayerPrefs.SetInt("mission_level", level_id);
-    Application.LoadLevel(15);
+    Application.LoadLevel("mission");
   }
 
 

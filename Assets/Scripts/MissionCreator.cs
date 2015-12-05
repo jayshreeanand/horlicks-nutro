@@ -24,18 +24,34 @@ public class MissionCreator : MonoBehaviour {
   }
 
   public void StartMission() {
-    Application.LoadLevel(6);
+    int mission_level = PlayerPrefs.GetInt("mission_level");
+		
+    if(mission_level == 1) {
+      Application.LoadLevel("level1");
+    }
+    else if(mission_level == 2) {
+      Application.LoadLevel("level2");
+
+    }
+    else {
+      Application.LoadLevel("level3");
+    }
   }
 
   public string[] GetMission(int id) {
     string[] mission_detail = new string[3];
+    PlayerPrefs.DeleteKey("target_carrot");
+    PlayerPrefs.DeleteKey("target_horlicks_mug");
+    PlayerPrefs.DeleteKey("target_horlicks_bottle");
+    PlayerPrefs.DeleteKey("target_apple");
+    PlayerPrefs.DeleteKey("target_milk");
+
     switch(id) {
       case 1:
-        mission_detail[0] = "Collect 5 Horlicks mugs";
-        mission_detail[1] = "Collect 5 carrots";
+        mission_detail[0] = "Collect 4 Horlicks mugs";
+        mission_detail[1] = "Collect 2 carrots";
         mission_detail[2] = "1.1";
-        PlayerPrefs.SetInt("target_carrot", 5);
-        PlayerPrefs.SetInt("target_horlicks", 5);
+        PlayerPrefs.SetInt("target_horlicks_mug", 2);
         break;
       case 2:
         mission_detail[0] = "Collect 5 Horlicks mugs";

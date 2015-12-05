@@ -22,7 +22,7 @@ public class Inventory : MonoBehaviour, IHasChanged{
     }
     var answer = PlayerPrefs.GetString("answer");
     if (builder.ToString() == answer) {
-      Application.LoadLevel(14);
+      Application.LoadLevel("smart_kid");
     }
     Debug.Log(builder.ToString ());
   }
