@@ -5,12 +5,15 @@ namespace UnityStandardAssets._2D
 {
     public class PlatformerCharacter2D : MonoBehaviour
     {
+
         [SerializeField] private float m_MaxSpeed = 10f;                    // The fastest the player can travel in the x axis.
         [SerializeField] private float m_JumpForce = 400f;                  // Amount of force added when the player jumps.
         [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;  // Amount of maxSpeed applied to crouching movement. 1 = 100%
         [SerializeField] private bool m_AirControl = false;                 // Whether or not a player can steer while jumping;
         [SerializeField] private LayerMask m_WhatIsGround;                  // A mask determining what is ground to the character
         [SerializeField] private Rigidbody2D bullet;
+        [SerializeField] private GameObject bubble;
+
 
         private Transform m_GroundCheck;    // A position marking where to check if the player is grounded.
         const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -22,7 +25,6 @@ namespace UnityStandardAssets._2D
         private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 		private bool m_DoubleJump = false;
         private float bullet_speed = 20f;
-
         private void Awake()
         {
             // Setting up references.
@@ -113,6 +115,20 @@ namespace UnityStandardAssets._2D
 			}
 
 
+        }
+
+        public void ActivateShield() {
+
+            GameObject bubble_shield = Instantiate(bubble);
+            bubble_shield.transform.SetParent(transform);
+            bubble_shield.transform.localScale = new Vector3( 1.0f, 1.0f, 1.0f );
+            bubble_shield.transform.localPosition = Vector3.zero;
+            Invoke("DeactivateShield", 5);
+        }
+
+        public void DeactivateShield() {
+             GameObject bubble_shield = transform.Find("bubble(Clone)").gameObject;
+             Destroy(bubble_shield);
         }
 
 

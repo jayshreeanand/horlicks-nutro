@@ -62,6 +62,11 @@ public class PowerupScript : MonoBehaviour {
         }
       }
 
+      if(powerup_name == "horlicks_bottle") {
+        GameObject.FindWithTag("Player").GetComponent<ShieldMode>().ActivateShield();
+
+      }
+
       IncrementPowerup(powerup_name);
       PlayerPrefs.SetInt("Score", playerScore + points);
 
