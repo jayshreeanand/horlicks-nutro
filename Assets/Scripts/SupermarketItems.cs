@@ -48,12 +48,18 @@ public class SupermarketItems : MonoBehaviour {
       nutrition_percentage = PlayerPrefs.GetInt("nutrition");
     }
     int new_nutrition_percentage = nutrition_percentage + nutrition_value;
+      Debug.Log("nutrition is " + new_nutrition_percentage+ "%");
+
     PlayerPrefs.SetInt("nutrition", new_nutrition_percentage);
      item.transform.SetParent(basket.transform);
       item.transform.localScale = new Vector3( 1.0f, 1.0f, 1.0f );
       item.transform.localPosition = new Vector3(Random.Range(-2,3), Random.Range(0,1), 0);
       nutrition_text.GetComponent<Text>().text = new_nutrition_percentage + "%";
 
-      Debug.Log("nutrition is " + new_nutrition_percentage+ "%");
+      if (new_nutrition_percentage > 100) {
+        PlayerPrefs.SetInt("nutrition", 0);
+
+        Application.LoadLevel("mission");
+      }
 }
 }

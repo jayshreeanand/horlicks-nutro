@@ -21,7 +21,7 @@ public class PuzzleCreator : MonoBehaviour {
     PlayerPrefs.SetString("answer", answer);
 
     var count = 0;
-    while(count < 2) {
+    while(count < 1) {
       puzzle_word += ((char)('A' + Random.Range (0,26)));
       count++;
     }
@@ -60,6 +60,39 @@ public class PuzzleCreator : MonoBehaviour {
     
   }
 
+  public void Skip(){
+        Application.LoadLevel(RandomFact());
+
+
+  }
+
+  string RandomFact() {
+    int fact_no = Random.Range(1,4);
+    string fact_level_name;
+    switch(fact_no) {
+      case 1:
+        fact_level_name = "fact1";
+        break;
+
+      case 2:
+        fact_level_name = "fact2";
+        break;
+
+      case 3:
+        fact_level_name = "fact3";
+        break;
+
+      case 4:
+        fact_level_name = "fact4";
+        break;
+
+      default:
+        fact_level_name = "fact1";
+        break;
+
+    }
+    return fact_level_name;
+  }
   public string[] GetPuzzle(int id) {
     string[] ques = new string[2];
     switch(id) {
@@ -76,8 +109,8 @@ public class PuzzleCreator : MonoBehaviour {
         ques[1] = "INDIA";
         break;
       case 4:
-        ques[0] = "Dairy products are generally made from \nwhat liquid?";
-        ques[1] = "MILK";
+        ques[0] = "This fruit is rich in Vitamin C";
+        ques[1] = "ORANGE";
         break;
       
       default:
