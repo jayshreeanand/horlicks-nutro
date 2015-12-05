@@ -25,14 +25,11 @@ public class GameController : MonoBehaviour {
       else if (currentLevel == "controls") {
         Application.LoadLevel("levels");
       }
-      else if (currentLevel == "puzzle") {
-        Application.LoadLevel(RandomFact());
-      }
       else if ((currentLevel == "fact1") || (currentLevel == "fact2") || (currentLevel == "fact3") || (currentLevel == "fact4")) {
         Application.LoadLevel("mission");
       }
       else if (currentLevel == "smart_kid") {
-        Application.LoadLevel("mission");
+        Application.LoadLevel(RandomFact());
       }
     }
   }

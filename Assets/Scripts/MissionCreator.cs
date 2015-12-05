@@ -12,12 +12,19 @@ public class MissionCreator : MonoBehaviour {
 
 	void Awake() {
     int mission_level = PlayerPrefs.GetInt("mission_level");
+    int mission_sub_level = 1;
+    if (!PlayerPrefs.HasKey("mission_sub_level")) {
+      PlayerPrefs.SetInt("mission_sub_level", 1);
+    }
+    else {
+      mission_sub_level = PlayerPrefs.GetInt("mission_sub_level");
+    }
     if (!(mission_level > 0)) {
       mission_level = 1;
       PlayerPrefs.SetInt("mission_level",mission_level);
     }
     Debug.Log("mission level is "+ mission_level);
-    string[] mission_statements = GetMission(mission_level);
+    string[] mission_statements = GetMission(mission_sub_level);
     mission1.GetComponent<Text>().text = mission_statements[0];
     mission2.GetComponent<Text>().text = mission_statements[1];
 

@@ -68,6 +68,10 @@ public class PowerupScript : MonoBehaviour {
 
       if (MissionCompleted ()) {
         Debug.Log("Level complete");
+        int mission_level = PlayerPrefs.GetInt("mission_level");
+        int mission_sub_level = PlayerPrefs.GetInt("mission_sub_level");
+        PlayerPrefs.SetInt("mission_sub_level", mission_sub_level + 1);
+        Application.LoadLevel("puzzle");
       }
 
       Destroy (this.gameObject);

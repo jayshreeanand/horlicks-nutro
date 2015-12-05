@@ -14,14 +14,14 @@ public class PuzzleCreator : MonoBehaviour {
 
   void Awake(){
     var question_answer = GetPuzzle(Random.Range(1,4));
-    question.GetComponent<GUIText>().text = question_answer[0];
+    question.GetComponent<Text>().text = question_answer[0];
     var answer = question_answer[1];
     char[] answer_letters = answer.ToCharArray();
     var puzzle_word = answer; 
     PlayerPrefs.SetString("answer", answer);
 
     var count = 0;
-    while(count < 3) {
+    while(count < 2) {
       puzzle_word += ((char)('A' + Random.Range (0,26)));
       count++;
     }
@@ -64,7 +64,7 @@ public class PuzzleCreator : MonoBehaviour {
     string[] ques = new string[2];
     switch(id) {
       case 1:
-        ques[0] = "Dairy productis are generally made from \nwhat liquid?";
+        ques[0] = "Dairy products are generally made from \nwhat liquid?";
         ques[1] = "MILK";
         break;
       case 2:
@@ -72,16 +72,16 @@ public class PuzzleCreator : MonoBehaviour {
         ques[1] = "APPLE";
         break;
       case 3:
-        ques[0] = "Dairy productis are generally made from \nwhat liquid";
-        ques[1] = "MILK";
+        ques[0] = "Which country is the world’s largest \nproducer of bananas?";
+        ques[1] = "INDIA";
         break;
       case 4:
-        ques[0] = "Dairy productis are generally made from \nwhat liquid";
+        ques[0] = "Dairy products are generally made from \nwhat liquid?";
         ques[1] = "MILK";
         break;
       
       default:
-        ques[0] = "Dairy productis are generally made from \nwhat liquid";
+        ques[0] = "Dairy products are generally made from \nwhat liquid?";
         ques[1] = "MILK";
         break;
 
