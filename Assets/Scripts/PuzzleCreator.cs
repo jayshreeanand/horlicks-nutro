@@ -13,10 +13,13 @@ public class PuzzleCreator : MonoBehaviour {
   
 
   void Awake(){
-    question.GetComponent<GUIText>().text = "Dairy products are generally made from \nwhat liquid?";
-    var answer = "MILK";
+    var question_answer = GetPuzzle(Random.Range(1,4));
+    question.GetComponent<GUIText>().text = question_answer[0];
+    var answer = question_answer[1];
     char[] answer_letters = answer.ToCharArray();
     var puzzle_word = answer; 
+    PlayerPrefs.SetString("answer", answer);
+
     var count = 0;
     while(count < 3) {
       puzzle_word += ((char)('A' + Random.Range (0,26)));
@@ -57,6 +60,34 @@ public class PuzzleCreator : MonoBehaviour {
     
   }
 
+  public string[] GetPuzzle(int id) {
+    string[] ques = new string[2];
+    switch(id) {
+      case 1:
+        ques[0] = "Dairy productis are generally made from \nwhat liquid?";
+        ques[1] = "MILK";
+        break;
+      case 2:
+        ques[0] = "What fruit a day keeps the doctor's away?";
+        ques[1] = "APPLE";
+        break;
+      case 3:
+        ques[0] = "Dairy productis are generally made from \nwhat liquid";
+        ques[1] = "MILK";
+        break;
+      case 4:
+        ques[0] = "Dairy productis are generally made from \nwhat liquid";
+        ques[1] = "MILK";
+        break;
+      
+      default:
+        ques[0] = "Dairy productis are generally made from \nwhat liquid";
+        ques[1] = "MILK";
+        break;
+
+    }
+    return ques;
+  }
 
 
 }

@@ -37,11 +37,36 @@ public class PowerupScript : MonoBehaviour {
         }
       }
 
+      IncrementPowerup(powerup_name);
       PlayerPrefs.SetInt("Score", playerScore + points);
+
+
+      if (MissionCompleted ()) {
+        Debug.Log("Level complete");
+      }
 
       Destroy (this.gameObject);
       score = GameObject.Find("score");
       score.GetComponent<Score>().Update();
+    }
+  }
+
+  bool MissionCompleted() {
+    return !(PlayerPrefs.HasKey("target_horlicks") || PlayerPrefs.HasKey("target_carrot") || PlayerPrefs.HasKey("target_apple")); 
+
+  }
+
+  void IncrementPowerup(string powerup_name) {
+    int powerup_count = PlayerPrefs.GetInt(powerup_name);
+    PlayerPrefs.SetInt(powerup_name, powerup_count +1);
+    if(PlayerPrefs.HasKey("target_" + powerup_name)){
+      int powerup_target = PlayerPrefs.GetInt("target_"+ powerup_name);
+      int new_target = powerup_target -1;
+      if(new_target == 0) {
+        Debug.Log("Part of mission completed");
+        PlayerPrefs.DeleteKey("target_"+ powerup_name);
+      }
+      PlayerPrefs.SetInt("target_"+ powerup_name, new_target);
     }
   }
 }

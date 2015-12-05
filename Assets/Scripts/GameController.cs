@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour {
     timeStart = Time.time;
   }
  
-  void Update (){
+  void Update1 (){
     if (Input.anyKeyDown || (Input.touchCount == 1) || (timeStart+timeWait)<Time.time){
       int currentLevel = Application.loadedLevel;
       if((currentLevel >= 0) && (currentLevel < 4)) {
@@ -25,4 +25,11 @@ public class GameController : MonoBehaviour {
       }
     }
   }
+
+  public void SetLevel(int level_id) {
+    PlayerPrefs.SetInt("mission_level", level_id);
+    Application.LoadLevel(15);
+  }
+
+
 }

@@ -20,9 +20,9 @@ public class Inventory : MonoBehaviour, IHasChanged{
         builder.Append (item.GetComponent<Text>().text);
       }
     }
-
-    if (builder.ToString() == "MILK") {
-      Debug.Log("Level complete!");
+    var answer = PlayerPrefs.GetString("answer");
+    if (builder.ToString() == answer) {
+      Application.LoadLevel(14);
     }
     Debug.Log(builder.ToString ());
   }
