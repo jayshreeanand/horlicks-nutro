@@ -47,19 +47,34 @@ public class SupermarketItems : MonoBehaviour {
     if(PlayerPrefs.HasKey("nutrition")) {
       nutrition_percentage = PlayerPrefs.GetInt("nutrition");
     }
-    int new_nutrition_percentage = nutrition_percentage + nutrition_value;
-      Debug.Log("nutrition is " + new_nutrition_percentage+ "%");
+
+    int nutri_value = 10;
+    if((item.name == "supermarket_items_6") || (item.name == "supermarket_items_11") || (item.name == "supermarket_items_12")) {
+      nutri_value = 0;
+    }
+    else if((item.name == "supermarket_items_7") || (item.name == "supermarket_items_1")) {
+      nutri_value = 5;
+    }
+    else if((item.name == "supermarket_items_3") || (item.name == "supermarket_items_5")) {
+      nutri_value = 15;
+    }
+    else
+    {
+      nutri_value = 10;
+    }
+    int new_nutrition_percentage = nutrition_percentage + nutri_value;
+      Debug.Log("current nutrition is " + nutri_value+ "%");
 
     PlayerPrefs.SetInt("nutrition", new_nutrition_percentage);
      item.transform.SetParent(basket.transform);
       item.transform.localScale = new Vector3( 1.0f, 1.0f, 1.0f );
       item.transform.localPosition = new Vector3(Random.Range(-2,3), Random.Range(0,1), 0);
-      nutrition_text.GetComponent<Text>().text = new_nutrition_percentage + "%";
+      nutrition_text.GetComponent<GUIText>().text = new_nutrition_percentage + "%";
 
-      if (new_nutrition_percentage > 100) {
+      if (new_nutrition_percentage >= 100) {
         PlayerPrefs.SetInt("nutrition", 0);
 
-        Application.LoadLevel("mission");
+        Application.LoadLevel("smart_kid");
       }
 }
 }

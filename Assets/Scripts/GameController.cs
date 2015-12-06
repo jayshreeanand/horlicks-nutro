@@ -31,6 +31,7 @@ public class GameController : MonoBehaviour {
       else if (currentLevel == "smart_kid") {
         Application.LoadLevel(RandomFact());
       }
+      
     }
   }
 
