@@ -16,7 +16,7 @@ public class Slot : MonoBehaviour, IDropHandler {
   {
     if(!item){
       DragHandler.itemBeingDragged.transform.SetParent (transform);
-      ExecuteEvents.ExecuteHierarchy<IHasChanged>(gameObject,null,(x,y) => x.HasChanged ());
+      GameObject.Find("puzzle_canvas").GetComponent<Inventory>().HasChanged();
     }
   }
 }
