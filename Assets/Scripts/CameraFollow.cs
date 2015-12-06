@@ -7,6 +7,6 @@ public class CameraFollow : MonoBehaviour {
 
 	void LateUpdate () {
     //transform.position = player.transform.position + offset;
-    transform.position = new Vector3(player.position.x + 7 , 0 , -10);
+    transform.position = new Vector3(player.position.x + 6 , 0 , -10);
 	}
 }
