@@ -16,6 +16,8 @@ public class Slot : MonoBehaviour, IDropHandler {
   {
     if(!item){
       DragHandler.itemBeingDragged.transform.SetParent (transform);
+      DragHandler.itemBeingDragged.transform.localScale = new Vector3( 1.0f, 1.0f, 1.0f );
+      DragHandler.itemBeingDragged.transform.localPosition = Vector3.zero;
       GameObject.Find("puzzle_canvas").GetComponent<Inventory>().HasChanged();
     }
   }
