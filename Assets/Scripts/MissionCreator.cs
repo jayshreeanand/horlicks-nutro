@@ -56,32 +56,34 @@ public class MissionCreator : MonoBehaviour {
     switch(id) {
       case 1:
         mission_detail[0] = "Collect 4 Horlicks mugs";
-        mission_detail[1] = "Collect 2 carrots";
+        mission_detail[1] = "Collect 3 carrots";
         mission_detail[2] = "1.1";
-        PlayerPrefs.SetInt("target_horlicks_mug", 2);
+        PlayerPrefs.SetInt("target_horlicks_mug", 4);
+        PlayerPrefs.SetInt("target_carrot", 4);
+
         break;
       case 2:
-        mission_detail[0] = "Collect 5 Horlicks mugs";
-        mission_detail[1] = "Collect 5 carrots";
+        mission_detail[0] = "Collect 3 Horlicks mugs";
+        mission_detail[1] = "Collect 5 apples";
         mission_detail[2] = "1.2";
-        PlayerPrefs.SetInt("target_carrot", 5);
-        PlayerPrefs.SetInt("target_horlicks", 5);
+        PlayerPrefs.SetInt("target_apple", 5);
+        PlayerPrefs.SetInt("target_horlicks_mug", 5);
         break;
 
       case 3:
-        mission_detail[0] = "Collect 5 Horlicks mugs";
-        mission_detail[1] = "Collect 5 carrots";
+        mission_detail[0] = "Collect 6 Milk Bottles";
+        mission_detail[1] = "Collect 2 Horlicks bottles";
         mission_detail[2] = "1.3";
-        PlayerPrefs.SetInt("target_carrot", 5);
-        PlayerPrefs.SetInt("target_horlicks", 5);
+        PlayerPrefs.SetInt("target_milk", 6);
+        PlayerPrefs.SetInt("target_horlicks_bottle", 2);
         break;
 
       case 4:
-        mission_detail[0] = "Collect 5 Horlicks mugs";
-        mission_detail[1] = "Collect 5 carrots";
+        mission_detail[0] = "Collect 4 Milk Bottles";
+        mission_detail[1] = "Collect 8 apples";
         mission_detail[2] = "1.4";
-        PlayerPrefs.SetInt("target_carrot", 5);
-        PlayerPrefs.SetInt("target_horlicks", 5);
+        PlayerPrefs.SetInt("target_milk", 4);
+        PlayerPrefs.SetInt("target_apple", 8);
         break;
 
       case 5:
@@ -89,7 +91,7 @@ public class MissionCreator : MonoBehaviour {
         mission_detail[1] = "Collect 5 carrots";
         mission_detail[2] = "1.5";
         PlayerPrefs.SetInt("target_carrot", 5);
-        PlayerPrefs.SetInt("target_horlicks", 5);
+        PlayerPrefs.SetInt("target_horlicks_mug", 5);
         break;
 
       default:
@@ -97,7 +99,7 @@ public class MissionCreator : MonoBehaviour {
         mission_detail[1] = "Collect 5 carrots";
         mission_detail[2] = "1.1";
         PlayerPrefs.SetInt("target_carrot", 5);
-        PlayerPrefs.SetInt("target_horlicks", 5);
+        PlayerPrefs.SetInt("target_horlicks_mug", 5);
         break;
 
 
