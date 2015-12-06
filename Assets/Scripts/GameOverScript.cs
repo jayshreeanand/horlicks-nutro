@@ -15,26 +15,35 @@ public class GameOverScript : MonoBehaviour {
 
     GUI.skin = customSkin;
     if (GUI.Button(new Rect(Screen.width/2 - 134  , Screen.height/2 + 60, 268, 56), play_again_button_image)) {
+      int level_play_count = 0;
       if (PlayerPrefs.HasKey("level_play_count")) {
-        int level_play_count = PlayerPrefs.GetInt("level_play_count");
-        if(level_play_count > 3){
-          PlayerPrefs.SetInt("level_play_count", 0);
+         level_play_count = PlayerPrefs.GetInt("level_play_count");
+      }
+      else {
+        level_play_count = 0;
+      }
+      if(level_play_count >= 2)
+      {
+        PlayerPrefs.DeleteKey("level_play_count");
+      Debug.Log("level count is "+ level_play_count);
 
-          Application.LoadLevel("puzzle");
-          } else
-          {
-            PlayerPrefs.SetInt("level_play_count", level_play_count +1);
-
-          }
-        } 
-        else {
-          PlayerPrefs.SetInt("level_play_count", 1);
+        if(mission_level == 2)
+        {
+          Application.LoadLevel("market");
 
         }
-        if(mission_level == 1) {
+        else {
+          Application.LoadLevel("puzzle");
+        }
+        } else
+        {
+          PlayerPrefs.SetInt("level_play_count", level_play_count +1);
+          if(mission_level == 1) 
+        {
           Application.LoadLevel("level1");
         }
-        else if(mission_level == 2) {
+        else if(mission_level == 2)
+        {
           Application.LoadLevel("level2");
 
         }
@@ -42,16 +51,24 @@ public class GameOverScript : MonoBehaviour {
           Application.LoadLevel("level3");
         }
 
+        }
+
+
+        
+
       }
 
-      if (GUI.Button(new Rect(Screen.width/2 - 134  , Screen.height/2 + 120, 268, 56), next_level_button_image)) {
+      if (GUI.Button(new Rect(Screen.width/2 - 134  , Screen.height/2 + 120, 268, 56), next_level_button_image))
+      {
         PlayerPrefs.SetInt("level_play_count", 0);
 
         int next_level = 1;
-        if(mission_level == 1) {
+        if(mission_level == 1)
+        {
           next_level = 2;
         }
-        else if(mission_level == 2) {
+        else if(mission_level == 2) 
+        {
           next_level = 3;
         }
         else {
@@ -61,6 +78,8 @@ public class GameOverScript : MonoBehaviour {
 
         Application.LoadLevel("mission");
       }
+
+
       GUI.skin = null;
     }
   }
