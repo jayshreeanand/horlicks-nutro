@@ -52,7 +52,7 @@ public class GameOverScript : MonoBehaviour {
       else {
         level_play_count = 0;
       }
-      if(level_play_count >= 2)
+      if(level_play_count >= 6)
       {
         PlayerPrefs.DeleteKey("level_play_count");
       Debug.Log("level count is "+ level_play_count);
