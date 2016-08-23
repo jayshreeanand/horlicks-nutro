@@ -11,14 +11,12 @@ public class GameController : MonoBehaviour {
   }
  
   void Update (){
-      string currentLevel = Application.loadedLevelName;
+    string currentLevel = Application.loadedLevelName;
 
     if (Input.anyKeyDown || (Input.touchCount == 1) || (timeStart+timeWait)<Time.time){
-
       if (currentLevel == "nutro") {
-        Application.LoadLevel("intro");
+        Application.LoadLevel("disclaimer");
       }
-      
       else if (currentLevel == "intro") {
         Application.LoadLevel("controls");
       }
@@ -31,7 +29,6 @@ public class GameController : MonoBehaviour {
       else if (currentLevel == "smart_kid") {
         Application.LoadLevel(RandomFact());
       }
-
     }
   }
 
